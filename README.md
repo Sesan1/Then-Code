@@ -16,3 +16,26 @@
 		//}
 		return focusNode;
 	}
+
+
+public boolean remove(int key){
+		Node focusNode = root;
+		Node parent = root;
+		
+		// to tell us whether to search to the left or right
+		boolean isItALeftChild = true;
+		
+		while(focusNode.key != key){
+			parent = focusNode;
+			
+			if(key < focusNode.key){
+				focusNode = parent.leftChild;
+				isItALeftChild = true;
+			}
+			else{
+				focusNode = parent.rightChild;
+				isItALeftChild = false;
+			}
+			if(focusNode == null)
+				return false;
+		}
